@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <windows.h>
 
 #define CHARGE 3e9
@@ -8,17 +9,20 @@
 
 
 int main() {
-//    setlocale(LC_ALL, "");
+    // help from stackoverflow
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
 
-    int conversionMode, conversion;
-    double value;
+    int conversionMode, conversion; // mode of conversion, and unit of conversion
+    double value, convCoefficient; // value to be converted, and coefficient used for conversion
+    std::string convText1, convText2; // text units
 
+    // choose conversion mode
     std::cout << "КОНВЕРТОР СГС -- СИ" << std::endl;
     std::cout << "Выберите реэим работы [1: СИ -> СГС/2: СГС -> СИ]: ";
     std::cin >> conversionMode;
 
+    // choose conversion unit
     if (conversionMode == 1) {
         std::cout << "Какой перевод вы желаете выполнить?\n"
                   << "1: Заряд (Кл -> ед.зар.)\n"
@@ -34,22 +38,42 @@ int main() {
     }
     std::cin >> conversion;
 
+    // input value to be converted
     std::cout << "Введите значение: ";
     std::cin >> value;
 
+    // set output mode to scientific with 4 digits after 0
+    std::cout << std::scientific << std::setprecision(4);
+
+    // setting important variables
     switch (conversion) {
         case 1:
-            std::cout << value << " = " << ((conversionMode == 1) ? value * CHARGE : value / CHARGE);
+            convCoefficient = CHARGE;
+            convText1 = "Кл";
+            convText2 = "ед.зар.";
             break;
         case 2:
-            std::cout << value << " = " << ((conversionMode == 1) ? value * INTENSITY : value / INTENSITY);
+            convCoefficient = INTENSITY;
+            convText1 = "В/м";
+            convText2 = "ед.напр.";
             break;
         case 3:
-            std::cout << value << " = " << ((conversionMode == 1) ? value * POTENTIAL : value / POTENTIAL);
+            convCoefficient = POTENTIAL;
+            convText1 = "В";
+            convText2 = "ед.пот.";
             break;
         case 4:
-            std::cout << value << " = " << ((conversionMode == 1) ? value * CURRENT : value / CURRENT);
+            convCoefficient = CURRENT;
+            convText1 = "А";
+            convText2 = "ед.с.т.";
             break;
+    }
+
+    // conversion + output
+    if (conversionMode == 1) {
+        std::cout << value << convText1 << " = " << value * convCoefficient << convText2 << std::endl;
+    } else {
+        std::cout << value << convText2 << " = " << value / convCoefficient << convText1 << std::endl;
     }
 
 

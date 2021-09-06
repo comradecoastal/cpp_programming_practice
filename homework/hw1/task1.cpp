@@ -34,14 +34,14 @@ int main() {
     // input temperature variable
     std::cout << "Maximum storing temperature: ";
     std::cin >> temperature;
-    //output section
+    // output section
     std::cout << '\n' << "*************** OUTPUT ***************" << "\n\n";
 
-    //output width 25
+    // output with width 25
     std::cout << name << '\n';
     std::cout << std::left << std::setw(17) << std::setfill('.') << "Price:"; // Price:.........
-    std::cout << std::setw(8) << std::right << std::setfill('0') << std::uppercase << std::hex \
- << std::setprecision(8) << price << std::endl; // output price as capital hex with leading zeroes
+    std::cout << std::setw(8) << std::right << std::setfill('0') << std::uppercase << std::hex
+              << std::setprecision(8) << price << std::endl; // output price as capital hex with leading zeroes
     std::cout << "Has cash-back:" << std::setfill('.') << std::setw(11) << std::boolalpha << hasCashback << std::endl;
     std::cout << "Max temperature:" << std::setw(9) << std::dec << std::showpos << temperature << std::endl;
 

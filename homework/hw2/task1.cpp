@@ -2,27 +2,29 @@
 #include <vector>
 
 int main() {
-    std::vector<double> element(2); // vector v
-    std::vector<std::vector<double>> tensor(2); // transformation matrix A
+    std::vector<double> element(3); // vector v
+    std::vector<std::vector<double>> tensor(3); // transformation matrix A
     double first, second; // variables for input
 
-    // input v = [x y] vector
+    // input v = [x y z] vector
     std::cout << "Enter vector values: ";
-    std::cin >> first >> second;
-    element.at(0) = first;
-    element.at(1) = second;
+    for (auto i = 0; i < 3; std::cin >> element.at(i++));
 
-    // input A = [a b ; c d] matrix
+    // input A = [a b c; d e f; g h i] matrix
     std::cout << "Enter values for transformation matrix: ";
     for (auto &line: tensor) {
-        std::cin >> first >> second;
-        line.push_back(first);
-        line.push_back(second);
+        line.resize(3);
+        for (auto i = 0; i < 3; std::cin >> line.at(i++));
     }
 
-    // output v' = A * v vector, v' = [ax + by   cx + dy]
-    std::cout << "The transformation is: " << tensor[0][0] * element[0] + tensor[0][1] * element[1] << " "
-              << tensor[1][0] * element[0] + tensor[1][1] * element[1] << std::endl;
+    // output v' = A * v vector, v' = [ax + by + cz ; dx + ey + fz ; gx + hy + iz]
+    std::cout << "The transformation is: ";
+    for (auto &line: tensor) {
+        std::cout << line.at(0) * element.at(0) + line.at(1) * element.at(1) +
+                     +line.at(2) * element.at(2) << " ";
+    }
+
+    std::cout << std::endl;
 
     return 0;
 }

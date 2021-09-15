@@ -3,6 +3,12 @@
 #include <vector>
 
 void insertion_sort(std::vector<int>& list) {
+    /**
+     * Function for sorting list of integers.
+     * Uses insertion sort.
+     *
+     * @param list link to list of integers.
+     */
     int n = list.size();
 
     // insertion sorting algo
@@ -14,20 +20,20 @@ void insertion_sort(std::vector<int>& list) {
 }
 
 int main() {
-    int n, m;
-    std::vector<int> a;
+    int n, tmp;
+    std::vector<int> list;
 
     std::cout << "Enter the amount of numbers: ";
     std::cin >> n;
     std::cout << "Enter the numbers: ";
     for (int i = 0; i < n; i++) {
-        std::cin >> m;
-        a.push_back(m);
+        std::cin >> tmp;
+        list.push_back(tmp);
     }
 
-    insertion_sort(a);
+    insertion_sort(list);
 
-    for (auto val: a) {
+    for (auto val: list) {
         std::cout << val << " ";
     }
 

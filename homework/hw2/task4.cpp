@@ -4,11 +4,21 @@
 #include <vector>
 
 int bin_search(int val, std::vector<int>& list) {
-    int right = list.size();
-    int left = 0;
-    int middle;
-    bool numberFound = false;
+    /**
+     * Find the position of val in list of integers.
+     * Returns position of value if found, or -1 if not found.
+     *
+     * @param val the value
+     * @param list link to list of integers
+     * @return integer equal to position, -1 if not found
+     */
 
+    int right = list.size(); // initial right position
+    int left = 0; // initial left position
+    int middle; // variable for middle value
+    bool numberFound = false; // number found value
+
+    // binary search algo
     while (left != right) {
         middle = (left + right) / 2;
         if (list.at(middle) == val) {
@@ -21,6 +31,7 @@ int bin_search(int val, std::vector<int>& list) {
         }
     }
 
+    // return position of found or -1 if not found
     if (numberFound) {
         return middle;
     } else {
@@ -44,6 +55,7 @@ int main() {
 
     pos = bin_search(val, list);
 
+    std::cout << pos << std::endl;
 
 
     return 0;

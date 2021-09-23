@@ -9,10 +9,9 @@ void insertion_sort(std::vector<int>& list) {
      *
      * @param list link to list of integers.
      */
-    int n = list.size();
 
     // insertion sorting algo
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < list.size(); i++) {
         for (int j = i; (j > 0) && (list.at(j) < list.at(j - 1)); j--) {
             std::swap(list.at(j), list.at(j - 1));
         }

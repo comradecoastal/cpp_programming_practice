@@ -4,4 +4,10 @@
 Домашние задания:
  - [x] [Задание 1](homework/hw1)
  - [x] [Задание 2](homework/hw2)
- - [ ] [Задание 3](homework/hw3)
+ - [x] [Задание 3](homework/hw3)
+ - [ ] [Задание 4]()
+
+
+Конспекты семинаров-лекций:
+ - [Лекция 2](lessons/lesson2/lesson.md)
+ - [Лекция 4](lessons/lesson4/lesson.md)

@@ -56,20 +56,28 @@ Vector operator * (double lambda, const Vector& a) {
 
 // addition
 Vector operator + (const Vector& a, const Vector& b) {
-    Vector output(a.dim, a.components);
-    for (auto i = 0; i < a.dim; i++) {
-        output.components.at(i) += b.components.at(i);
+    if (a.dim == b.dim) {
+        Vector output(a.dim, a.components);
+        for (auto i = 0; i < a.dim; i++) {
+            output.components.at(i) += b.components.at(i);
+        }
+        return output;
+    } else {
+        std::cout << "Vectors must have same size!" << std::endl;
     }
-    return output;
 }
 
 // subtraction
 Vector operator - (const Vector& a, const Vector& b) {
-    Vector output(a.dim, a.components);
-    for (auto i = 0; i < a.dim; i++) {
-        output.components.at(i) -= b.components.at(i);
+    if (a.dim == b.dim) {
+        Vector output(a.dim, a.components);
+        for (auto i = 0; i < a.dim; i++) {
+            output.components.at(i) -= b.components.at(i);
+        }
+        return output;
+    } else {
+        std::cout << "Vectors must have same size!" << std::endl;
     }
-    return output;
 }
 
 // negative
@@ -83,11 +91,15 @@ Vector operator - (const Vector& a) {
 
 // scalar product
 double operator * (const Vector& a, const Vector& b) {
-    double output = 0;
-    for (auto i = 0; i < a.dim; i++) {
-        output += a.components.at(i) * b.components.at(i);
+    if (a.dim == b.dim) {
+        double output = 0;
+        for (auto i = 0; i < a.dim; i++) {
+            output += a.components.at(i) * b.components.at(i);
+        }
+        return output;
+    } else {
+        std::cout << "Vectors must have same size!" << std::endl;
     }
-    return output;
 }
 
 // ostream formatting
@@ -98,6 +110,15 @@ std::ostream& operator<<(std::ostream& ostr, const Vector& a) {
     }
     ostr << a.components.at(a.dim - 1) << ']';
     return ostr;
+}
+
+std::istream& operator>>(std::istream& in, Vector& a) {
+    std::cin >> a.dim;
+    a.components.resize(a.dim);
+    for (auto& elem : a.components) {
+        std::cin >> elem;
+    }
+    return in;
 }
 
 int main() {
@@ -120,6 +141,13 @@ int main() {
 
     std::cout << a.norm() << ' ' << b.norm() << ' ' << c.norm() << ' ' << d.norm() << std::endl; // norm of vector
     std::cout << a << ' ' << b << ' ' <<  c << ' ' << d << std::endl;
+
+    Vector e, f;
+    std::cout << "Enter first vector (first the number of elements, then the elements): ";
+    std::cin >> e;
+    std::cout << "Enter second vector: ";
+    std::cin >> f;
+    std::cout << "Sum of vectors = " << e + f << std::endl;
 
     return 0;
 }

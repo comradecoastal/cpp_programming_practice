@@ -15,7 +15,7 @@ enum class Month {
     DEC
 };
 
-int daysInMonth(const Month &month, int year) {
+int daysInMonth(const Month &month, int year = 2021) {
     switch (month) {
         case Month::FEB:
             if ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0))) {

@@ -62,9 +62,9 @@ unsigned Fraction::get_denominator() const {
     return denominator;
 }
 
-double Fraction::to_double() const {
-    return double(numerator) / denominator;
-}
+//double Fraction::to_double() const {
+//    return double(numerator) / denominator;
+//}
 
 Fraction operator+(Fraction a, Fraction b) {
     return {static_cast<int>(a.numerator * b.denominator + b.numerator * a.denominator), a.denominator * b.denominator};
@@ -140,6 +140,9 @@ Fraction &Fraction::operator=(Fraction frac) {
     return *this;
 }
 
+Fraction::operator double() const {
+    return double(numerator) / denominator;
+}
 
 std::vector<std::string> split(const std::string &line, char splitChar) {
     /**

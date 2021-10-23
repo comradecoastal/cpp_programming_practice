@@ -7,6 +7,7 @@ int main() {
 
     std::cout << R"(Enter two fractions ("23/4", "-2/7"): )";
     std::cin >> a >> b;
+    std::cout << a << " = " << double(a) << ", " << b << " = " << double(b) << std::endl;
 
     Fraction c = a;
     c = c + 2; // implicit conversion

@@ -25,7 +25,11 @@ public:
     unsigned get_denominator() const;
 
     // conversion to double
-    double to_double() const;
+//    double to_double() const;
+
+    // conversion operator
+
+    explicit operator double() const;
 
     // = operator
     Fraction &operator=(Fraction frac);

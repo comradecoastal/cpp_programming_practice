@@ -22,12 +22,24 @@ const std::vector<std::array<double, 2>> &Shapes::Rectangle::get_vertices() cons
 }
 
 void Shapes::Rectangle::set_sides(double a, double b) {
-    Polygon::set_vertices(
-            {origin, {origin[0] + a, origin[1]}, {origin[0] + a, origin[1] + b}, {origin[0], origin[1] + b}});
+    side_a = a;
+    side_b = b;
+    update_shape();
 }
 
-void Shapes::Rectangle::set_sides(std::array<double, 2> sides) {
-    set_sides(sides[0], sides[1]);
+void Shapes::Rectangle::set_origin(std::array<double, 2> orig) {
+    origin = orig;
+    update_shape();
+}
+
+void Shapes::Rectangle::set_a_side(double a) {
+    side_a = a;
+    update_shape();
+}
+
+void Shapes::Rectangle::set_b_side(double b) {
+    side_b = b;
+    update_shape();
 }
 
 double Shapes::Rectangle::get_a_side() const {
@@ -45,3 +57,13 @@ std::array<double, 2> Shapes::Rectangle::get_sides() const {
 std::array<double, 2> Shapes::Rectangle::get_origin() const {
     return origin;
 }
+
+void Shapes::Rectangle::update_shape() {
+    Polygon::set_vertices(
+            {origin, {origin[0] + side_a, origin[1]}, {origin[0] + side_a, origin[1] + side_b},
+             {origin[0], origin[1] + side_b}});
+}
+
+
+
+

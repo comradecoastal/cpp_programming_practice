@@ -12,27 +12,38 @@ public:
     Ellipse() = default;
 
     Ellipse(double a, double b) :
-            center({0, 0}), a_axis(a), b_axis(b), a_axis_tilt(0) {}
+            center({0, 0}), a_axis(a), b_axis(b) {}
 
     Ellipse(double a, double b, std::array<double, 2> center) :
-            center(center), a_axis(a), b_axis(b), a_axis_tilt(0) {}
+            center(center), a_axis(a), b_axis(b) {}
 
-    Ellipse(double a, double b, std::array<double, 2> center, double c) :
-            center(center), a_axis(a), b_axis(b), a_axis_tilt(c) {}
-
+    // required virtual methods
     double get_perimeter() const override;
+
     double get_area() const override;
+
     void print_info() const override;
 
+    // getters
     double get_a_axis() const;
+
     double get_b_axis() const;
-    std::array<double, 2> get_center() const;
+
+    virtual std::array<double, 2> get_center() const; // override in Circle
+
+    //setters
+    void set_a_axis(double a);
+
+    void set_b_axis(double b);
+
+    void set_axes(double a, double b);
+
+    virtual void set_center(std::array<double, 2> c); // override in Circle
 
 private:
-    std::array<double, 2> center;
-    double a_axis;
-    double b_axis;
-    double a_axis_tilt;
+    std::array<double, 2> center; // center of elliplse
+    double a_axis; // first axis
+    double b_axis; // second axis
 };
 
 

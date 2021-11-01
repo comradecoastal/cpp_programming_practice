@@ -10,14 +10,14 @@ double Shape::get_perimeter() const {
     /**
      * Method supposed to return perimeter of a shape
      */
-    return 0;
+    return NAN;
 }
 
 double Shape::get_area() const {
     /**
      * Method supposed to return the area of a shape
      */
-    return 0;
+    return NAN;
 }
 
 void Shape::print_info() const {
@@ -27,8 +27,4 @@ void Shape::print_info() const {
     std::cout << "empty shape class" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream & out, const Shape& shape) {
-    out << "empty shape class";
-    return out;
-}
 

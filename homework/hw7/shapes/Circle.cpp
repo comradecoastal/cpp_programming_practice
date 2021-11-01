@@ -16,3 +16,19 @@ double Shapes::Circle::get_perimeter() const {
 double Shapes::Circle::get_area() const {
     return Ellipse::get_area();
 }
+
+double Shapes::Circle::get_diameter() const {
+    return Ellipse::get_a_axis();
+}
+
+std::array<double, 2> Shapes::Circle::get_center() const {
+    return Ellipse::get_center();
+}
+
+void Shapes::Circle::set_diameter(double d) {
+    Ellipse::set_axes(d, d);
+}
+
+void Shapes::Circle::set_center(std::array<double, 2> c) {
+    Ellipse::set_center(c);
+}

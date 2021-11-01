@@ -43,3 +43,16 @@ void Polygon::set_vertices(std::vector<std::array<double, 2>> vert) {
     dimension = vertices.size();
 }
 
+unsigned Polygon::get_dimension() const {
+    return dimension;
+}
+
+void Polygon::set_vertex(unsigned int pos, std::array<double, 2> vert) {
+    vertices.at(pos) = vert;
+}
+
+void Polygon::set_dimension(unsigned int dim) {
+    dimension = dim;
+    vertices.resize(dimension);
+}
+

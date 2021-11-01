@@ -7,17 +7,30 @@
 
 #include "Ellipse.h"
 
-class Shapes::Circle : Ellipse {
+class Shapes::Circle : public Ellipse {
 public:
     Circle() = default;
 
-    Circle(double diameter) : Ellipse(diameter, diameter) {}
+    explicit Circle(double diameter) : Ellipse(diameter, diameter) {}
 
-    Circle(double diameter, std::array<double, 2> center): Ellipse(diameter, diameter, center) {}
+    Circle(double diameter, std::array<double, 2> center) : Ellipse(diameter, diameter, center) {}
 
+    // required virtual methods
     double get_perimeter() const override;
+
     double get_area() const override;
+
     void print_info() const override;
+
+    // getters
+    double get_diameter() const;
+
+    std::array<double, 2> get_center() const override;
+
+    // setters
+    void set_diameter(double d);
+
+    void set_center(std::array<double, 2> c) override;
 
 };
 

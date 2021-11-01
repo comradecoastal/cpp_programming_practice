@@ -32,3 +32,20 @@ double Ellipse::get_b_axis() const {
 std::array<double, 2> Ellipse::get_center() const {
     return center;
 }
+
+void Ellipse::set_a_axis(double a) {
+    a_axis = a;
+}
+
+void Ellipse::set_b_axis(double b) {
+    b_axis = b;
+}
+
+void Ellipse::set_center(std::array<double, 2> c) {
+    center = c;
+}
+
+void Ellipse::set_axes(double a, double b) {
+    a_axis = a;
+    b_axis = b;
+}

@@ -32,3 +32,7 @@ void Shapes::Square::set_side(double side) {
 std::array<double, 2> Shapes::Square::get_origin() const {
     return Rectangle::get_origin();
 }
+
+void Shapes::Square::set_origin(std::array<double, 2> orig) {
+    Rectangle::set_origin(orig);
+}

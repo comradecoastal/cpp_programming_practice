@@ -7,7 +7,9 @@
  - [x] [Задание 3](homework/hw3)
  - [x] [Задание 4](homework/hw4)
  - [x] [Задание 5](homework/hw5)
- - [ ] [Задание 6](homework/hw6)
+ - [x] [Задание 6](homework/hw6)
+ - [ ] [Задание 7](homework/hw7)
+ - [ ] [Задание 8](homework/hw8)
 
 
 Конспекты семинаров-лекций:

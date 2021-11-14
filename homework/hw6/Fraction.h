@@ -2,7 +2,7 @@
 #define DEFAULT_FRACTION_H
 
 #include <iostream>
-
+//#include <numeric>
 
 class Fraction {
 public:

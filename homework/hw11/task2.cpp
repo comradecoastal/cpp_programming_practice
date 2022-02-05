@@ -1,6 +1,6 @@
 #include <iostream>
 
-unsigned long prime(unsigned n) {
+constexpr unsigned long prime(unsigned n) {
     if (n == 1) return 2;
     unsigned place = 2;
     unsigned long number = 3;
@@ -22,6 +22,6 @@ unsigned long prime(unsigned n) {
 }
 
 int main() {
-    unsigned long a = prime(6);
+    constexpr unsigned long a = prime(6);
     std::cout << a << std::endl;
 }
